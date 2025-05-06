@@ -1,22 +1,40 @@
-# Fake News Detection using Machine Learning
+# Fake News Detection Model
 
-This project implements a machine learning model to detect fake news articles. Using a dataset of real and fake news, the model applies text preprocessing, TF-IDF vectorization, and a Multinomial Naive Bayes classifier to predict whether a given article is **FAKE** or **REAL**.
+This project contains a Python script for detecting fake news using machine learning. The script uses Natural Language Processing (NLP) and machine learning algorithms to classify news articles as either "REAL" or "FAKE."
 
-## Key Features:
-- **Data Preprocessing**: Cleans and prepares text data by removing stopwords and punctuation.
-- **TF-IDF Vectorization**: Converts text data into numerical features for model training.
-- **Naive Bayes Classifier**: Uses a Multinomial Naive Bayes classifier to classify news as fake or real.
-- **Model Evaluation**: Provides accuracy and confusion matrix metrics for performance analysis.
+## Dataset
 
-## Installation:
-1. Clone the repository:
-   ```bash
-   git clone https://MhamedHalloub/fake-news-detection.git
-Install dependencies:
-  pip install -r requirements.txt
-Run the model:
-  python fake_news_detector.py
-How it Works:
-      The dataset is loaded and labeled as FAKE or REAL.
-      Text data is cleaned and transformed into numerical features using TF-IDF.
-      A Multinomial Naive Bayes model is trained and evaluated using accuracy and confusion matrix.
+The dataset used for this project contains labeled news articles (real or fake). You can download the dataset from [this link](<insert_download_link_here>), or you can use your own dataset in CSV format with the same structure.
+
+### Dataset Structure
+
+The dataset must contain two CSV files:
+
+- **`fake.csv`**: A CSV file containing fake news articles. The structure should have two columns:
+  - `text`: The content of the news article
+  - `label`: The label indicating that the news is "FAKE"
+  
+- **`true.csv`**: A CSV file containing real news articles. The structure should have two columns:
+  - `text`: The content of the news article
+  - `label`: The label indicating that the news is "REAL"
+
+After downloading the dataset, save the `fake.csv` and `true.csv` files in the same directory as the `fake_news_detector.py` file.
+
+## Requirements
+
+You need to install the following Python libraries to run this project:
+            pip install pandas scikit-learn nltk
+
+Running the Script
+            Download the dataset files (fake.csv and true.csv) and place them in the same directory as the Python script.
+            Run the script using the following command:
+               python fake_news_detector.py
+The model will be trained on the dataset and will predict whether the news articles are "REAL" or "FAKE."
+
+Code Explanation
+            The script first loads the fake.csv and true.csv files using pandas.
+            It combines both datasets, assigns labels ("REAL" and "FAKE"), and cleans the text data.
+            Then, the text data is vectorized using the TfidfVectorizer from scikit-learn.
+            A machine learning model (PassiveAggressiveClassifier) is trained to classify the news articles.
+            The script then evaluates the model's accuracy and prints the confusion matrix.
+            Finally, the script makes predictions on sample news articles to demonstrate how it works.
